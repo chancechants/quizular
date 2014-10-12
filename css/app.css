@@ -1,0 +1,16 @@
+@font-face {
+	font-family: FiraSans;
+	src:	url(firasans-book.otf);	
+}
+body, nav {
+	font-family: FiraSans;
+}
+.name {
+	background-color: #008cba;
+}
+.ng-dirty,.ng-invalid { 
+	border: 1px solid red; 
+}
+.ng-pristine {
+	border: 1px solid green;
+}
