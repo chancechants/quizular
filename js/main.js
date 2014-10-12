@@ -1,5 +1,5 @@
 
-var app = angular.module("QuizPrep", ['ngRoute']);
+var app = angular.module("quizular", ['ngRoute']);
 
 app.config(function($routeProvider) {
 	$routeProvider.when('/', {
