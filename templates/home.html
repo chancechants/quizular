@@ -42,7 +42,8 @@
 				<option value="JS">Javscript/MVC</option>
 				<option value="NG">Angular</option>
 			</select>
-			<button type="submit" class="success button expand" value="startquiz">Start Your Quiz!</button>
+			<button type="submit" class="success button expand" value="startquiz" ng-disabled="form.$dirty && form.$invalid">Start Your Quiz!</button>
+			<a href="#/quiz">Quick test link</a>
 			<p>Good luck on your quiz!</p>
 		</div>
 	</div>

@@ -14,19 +14,23 @@ app.config(function($routeProvider) {
 });
 
 app.controller('HomeController', function($scope) {
-	$scope.name = $('#name').val();
-	$scope.email = $('#email').val();
-	$scope.quesnum = $('.questionnum.active').attr('myvalue');
-	console.log('quesnum:'+$scope.quesnum);
-	$scope.startQuiz = function() {
-		var x = $('.questionnum.active').attr('myvalue');
-		console.log(x);
-		if (x === undefined) { console.log('No quesnum entered!'); } 
-		else { console.log('Quiz Started!'); }
-	}
+  $scope.name = $('#name').val();
+  $scope.email = $('#email').val();
+  $scope.quesnum = $('.questionnum.active').attr('myvalue');
+  $scope.startQuiz = function() {
+    var x = $('.questionnum.active').attr('myvalue');
+    console.log(x);
+    if (x === undefined) { console.log('No quesnum entered!'); } 
+    else { console.log('Quiz Started!'); }
+  }
 });
 
-app.controller('QuizController', function($scope) {
+app.controller('QuizController', function($scope, $http) {
+  $http.get('questions/questions.json').success(function (questions){
+    $scope.questions = questions;
+    console.log(questions);
+  });	
+  console.log($scope.questions);
 });
 
 function setQuestionNum(theQuestionNum) {
@@ -36,5 +40,4 @@ function setQuestionNum(theQuestionNum) {
 	$(theQuestionNum).css('background-color', '#008cba');
 	$(theQuestionNum).addClass('active');
 	$(theQuestionNum).triggerHandler('input');
-	$scope.quesnum = $('.questionnum.active').attr('myvalue');
 }
